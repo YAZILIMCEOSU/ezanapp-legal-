@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ticari elektronik ileti, açık rıza ve İYS süreçleri.">
+<meta name="robots" content="index,follow">
+<title>Ticari İletişim ve İYS — Ezan Asistanı Pro</title>
+<style>
+:root {
+  --bg: #f6f8f7;
+  --card: #ffffff;
+  --ink: #14211d;
+  --muted: #5b6b65;
+  --brand: #0f766e;
+  --brand-soft: #e6f4f1;
+  --line: #dbe5e1;
+  --warn: #92400e;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.65;
+  font-size: 16px;
+}
+a { color: var(--brand); text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+header {
+  background: linear-gradient(135deg, #0f766e, #115e59);
+  color: #fff;
+  padding: 22px 20px 18px;
+}
+header .wrap {
+  max-width: 980px; margin: 0 auto;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+  justify-content: space-between;
+}
+.brand { font-weight: 800; letter-spacing: .2px; font-size: 18px; }
+.brand small { display: block; font-weight: 500; opacity: .85; font-size: 12px; }
+nav { display: flex; flex-wrap: wrap; gap: 6px; }
+nav a {
+  color: #fff; text-decoration: none; font-size: 13px;
+  padding: 5px 9px; border-radius: 999px; background: rgba(255,255,255,.12);
+}
+nav a:hover { background: rgba(255,255,255,.24); }
+main {
+  max-width: 980px; margin: 26px auto 60px; padding: 0 18px;
+}
+.card {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 16px; padding: 28px 30px;
+  box-shadow: 0 8px 24px rgba(15, 118, 110, .06);
+}
+h1 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; }
+h2 { font-size: 22px; margin: 34px 0 10px; padding-top: 8px; }
+h3 { font-size: 17px; margin: 24px 0 8px; }
+p, li { color: #24332e; }
+ul, ol { padding-left: 22px; }
+li { margin: 4px 0; }
+blockquote {
+  margin: 18px 0; padding: 12px 16px;
+  background: var(--brand-soft); border-left: 4px solid var(--brand);
+  border-radius: 8px; color: #164e47;
+}
+code {
+  background: #eef3f1; padding: 1px 5px; border-radius: 5px;
+  font-size: 13px;
+}
+pre {
+  background: #0f172a; color: #e2e8f0; padding: 16px;
+  border-radius: 10px; overflow-x: auto; font-size: 13px;
+}
+pre code { background: transparent; color: inherit; padding: 0; }
+table {
+  width: 100%; border-collapse: collapse; margin: 16px 0;
+  font-size: 14px; display: block; overflow-x: auto;
+}
+th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: #f0f6f4; font-weight: 700; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.meta {
+  color: var(--muted); font-size: 13px; margin-bottom: 18px;
+}
+.notice {
+  background: #fff7ed; border: 1px solid #fed7aa; color: var(--warn);
+  padding: 12px 16px; border-radius: 10px; font-size: 13.5px;
+  margin: 18px 0;
+}
+
+.cookie-banner {
+  position: fixed; left: 14px; right: 14px; bottom: 14px; z-index: 2000;
+  display: none; max-width: 780px; margin: 0 auto;
+  background: #fff; border: 1px solid var(--line); border-radius: 14px;
+  padding: 16px 18px; box-shadow: 0 18px 44px rgba(6, 30, 24, .22);
+}
+.cookie-banner.is-open { display: block; }
+.cookie-banner p { margin: 0 0 12px; font-size: 13.5px; line-height: 1.55; }
+.cookie-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.cookie-btn {
+  appearance: none; cursor: pointer; font: inherit; font-size: 13.5px;
+  padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line);
+  background: #fff; color: var(--brand); font-weight: 600;
+}
+.cookie-btn.primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+.cookie-btn.secondary { background: #fff; }
+.cookie-btn.link { border: 0; background: none; text-decoration: underline; padding: 8px 4px; }
+.cookie-modal {
+  position: fixed; inset: 0; z-index: 2100; display: none;
+  align-items: center; justify-content: center; padding: 16px;
+  background: rgba(6, 20, 16, .55);
+}
+.cookie-modal.is-open { display: flex; }
+.cookie-dialog {
+  background: #fff; border-radius: 16px; padding: 22px;
+  width: 100%; max-width: 520px; max-height: 90vh; overflow: auto;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .28);
+}
+.cookie-dialog h2 { margin-top: 0; }
+.cookie-row {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 11px 0; border-top: 1px solid var(--line); font-size: 14px;
+}
+.cookie-row input { margin-top: 4px; }
+.cookie-row strong { display: block; }
+.cookie-row small { color: var(--muted); display: block; }
+@media (max-width: 640px) {
+  .cookie-banner { left: 0; right: 0; bottom: 0; border-radius: 14px 14px 0 0; }
+}
+
+footer {
+  max-width: 980px; margin: 0 auto 40px; padding: 0 18px;
+  color: var(--muted); font-size: 13px;
+}
+footer .links { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
+@media (max-width: 640px) {
+  .card { padding: 20px 16px; }
+  h1 { font-size: 24px; }
+  h2 { font-size: 19px; }
+}
+@media print {
+  header, nav, footer { display: none; }
+  body { background: #fff; }
+  .card { border: 0; box-shadow: none; padding: 0; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">Ezan Asistanı Pro<small>Yasal ve uyum belgeleri</small></div>
+    <nav><a href="privacy.html">Gizlilik</a><a href="kvkk.html">KVKK</a><a href="acik-riza.html">Açık Rıza</a><a href="terms.html">Koşullar</a><a href="abonelik.html">Abonelik</a><a href="veri-silme.html">Veri Silme</a><a href="guvenlik.html">Güvenlik</a><a href="cerez.html">Çerez</a><a href="mesafeli-satis.html">Mesafeli Satış</a><a href="iade.html">İade</a><a href="kunye.html">Künye</a></nav>
+  </div>
+</header>
+<main>
+  <article class="card">
+    <div class="meta">YazılımCeosu · İstanbul, Türkiye · destek@ezanai.app</div>
+    <h1 id="ezan-asistan-pro-ticari-iletisim-ve-iys-politikas">Ezan Asistanı Pro — Ticari İletişim ve İYS Politikası</h1>
+<p><strong>Sürüm:</strong> 1.0 · <strong>Son güncelleme:</strong> 17 Kasım 2026
+<strong>Dayanak:</strong> 6563 sayılı Kanun, Ticari İletişim ve Ticari Elektronik İletiler
+Hakkında Yönetmelik, İYS yönergeleri.</p>
+<h2 id="1-su-anki-durum">1. Şu anki durum</h2>
+<ul>
+<li>Ezan Asistanı Pro <strong>ticari elektronik ileti göndermiyor</strong>.</li>
+<li>SMS, e-posta bülteni, telefonla pazarlama veya üçüncü taraf reklam ağı
+  listesi <strong>yoktur</strong>.</li>
+<li>Uygulama bildirimleri:</li>
+<li>namaz vakti/ezan,</li>
+<li>okuma ve zikir hatırlatmaları,</li>
+<li>indirme/güncelleme durumu</li>
+</ul>
+<p>gibi <strong>hizmet bildirimleridir</strong>; kullanıcı tarafından kapatılabilir.</p>
+<h2 id="2-iys-kayd">2. İYS kaydı</h2>
+<ul>
+<li>Ticari ileti gönderilmediği sürece İYS’ye <strong>gönderim kaydı</strong> yapılmaz.</li>
+<li>Kampanya/tanıtım iletisi planlanırsa:
+  1. gönderim öncesi İYS’ye hizmet sağlayıcı kaydı yapılır,
+  2. yalnızca <strong>açık rıza</strong> veren alıcılara gönderilir,
+  3. her iletide ret (çıkma) yolu sunulur,
+  4. ret talepleri 3 iş günü içinde İYS’ye işlenir,
+  5. rıza ve ret kayıtları mevzuattaki süre boyunca saklanır.</li>
+</ul>
+<h2 id="3-ack-rza-ve-kayt">3. Açık rıza ve kayıt</h2>
+<ul>
+<li>Uygulamada “Kampanya ve tanıtım bildirimleri” anahtarı <strong>varsayılan kapalıdır</strong>.</li>
+<li>Anahtar açıldığında cihazda tarih damgasıyla rıza kaydı tutulur
+  (<code>PrefKeys.marketingConsentAt</code>).</li>
+<li>Rıza, Ayarlar → Açık rızalarım ekranından <strong>her zaman geri çekilebilir</strong>.</li>
+<li>Rıza kaydı üçüncü taraflara satılmaz, kiralanmaz.</li>
+</ul>
+<h2 id="4-hizmet-bildirimi-ile-ticari-ileti-ayrm">4. Hizmet bildirimi ile ticari ileti ayrımı</h2>
+<table>
+<thead>
+<tr>
+<th>Bildirim türü</th>
+<th>Örnek</th>
+<th>Rıza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hizmet bildirimi</td>
+<td>Ezan vakti, indirme tamamlandı, güvenlik uyarısı</td>
+<td>Gerekmez; kapatılabilir</td>
+</tr>
+<tr>
+<td>İşlemsel bildirim</td>
+<td>Abonelik yenilendi, iade onaylandı</td>
+<td>Gerekmez; mağaza tarafından gönderilir</td>
+</tr>
+<tr>
+<td>Ticari ileti</td>
+<td>Kampanya, yeni özellik tanıtımı, indirim</td>
+<td><strong>Açık rıza + İYS</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-ucuncu-taraf-reklamlar">5. Üçüncü taraf reklamlar</h2>
+<ul>
+<li>AdMob reklamları uygulama içinde gösterilir; bu bir e-posta/SMS ileti
+  gönderimi değildir.</li>
+<li>Kişiselleştirilmiş reklam için UMP rızası ve <code>personalizedAdsConsentAt</code>
+  kaydı gerekir; varsayılan <strong>kişiselleştirilmemiş</strong> reklamdır.</li>
+<li>Reklam ortakları hakkında: <a href="ucuncu-taraflar.html">Üçüncü Taraf SDK’ları</a>.</li>
+</ul>
+<h2 id="6-basvuru">6. Başvuru</h2>
+<p>Rıza durumunuzu görmek, geri çekmek veya İYS ile ilgili soru sormak için:
+<strong>destek@ezanai.app</strong> — Konu: “İYS”.</p>
+<blockquote>
+<p>Bu metin bilgilendirme amaçlıdır; hukuki görüş yerine geçmez.</p>
+</blockquote>
+    <div class="notice">
+      Bu sayfa bilgilendirme amaçlıdır ve hukuki görüş yerine geçmez.
+      Yürürlükteki sürüm bu sayfadır; önemli değişiklikler uygulama içinde
+      duyurulur.
+    </div>
+  </article>
+</main>
+<footer>
+  <div class="links"><a href="privacy.html">Gizlilik</a><a href="kvkk.html">KVKK</a><a href="acik-riza.html">Açık Rıza</a><a href="terms.html">Koşullar</a><a href="abonelik.html">Abonelik</a><a href="veri-silme.html">Veri Silme</a><a href="guvenlik.html">Güvenlik</a><a href="cerez.html">Çerez</a><a href="mesafeli-satis.html">Mesafeli Satış</a><a href="iade.html">İade</a><a href="kunye.html">Künye</a><a href="#" data-cookie-settings>Çerez ayarları</a></div>
+  <div>© 2026 YazılımCeosu · Ezan Asistanı Pro · <code>com.yazilimceosu.ezanai</code></div>
+</footer>
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-labelledby="cookie-title">
+  <p id="cookie-title"><strong>Çerezler ve gizlilik.</strong>
+    Bu sitede analitik veya reklam çerezi kullanılmaz. Yalnızca tercihinizi
+    hatırlamak için tarayıcı deposu (localStorage) kullanılır.
+    <a href="cerez.html">Çerez politikası</a></p>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-btn secondary" data-cookie-choice="necessary">Yalnızca zorunlu</button>
+    <button type="button" class="cookie-btn primary" data-cookie-choice="all">Kabul et</button>
+    <button type="button" class="cookie-btn link" id="cookie-open-settings">Ayarlar</button>
+  </div>
+</div>
+<div id="cookie-modal" class="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">
+  <div class="cookie-dialog">
+    <h2 id="cookie-modal-title">Çerez ayarları</h2>
+    <p style="font-size:13.5px;color:#5b6b65">
+      Bu sitede isteğe bağlı çerez kategorileri kullanılmıyor. Tercihiniz
+      yalnızca bu cihazda saklanır ve sunucuya gönderilmez.
+    </p>
+    <label class="cookie-row">
+      <input type="checkbox" checked disabled>
+      <span><strong>Zorunlu</strong>
+        <small>Çerez tercihinizi hatırlatan yerel kayıt. Her zaman açık.</small></span>
+    </label>
+    <label class="cookie-row">
+      <input type="checkbox" disabled>
+      <span><strong>Analitik</strong>
+        <small>Bu sitede kullanılmıyor (Google Analytics vb. yok).</small></span>
+    </label>
+    <label class="cookie-row">
+      <input type="checkbox" disabled>
+      <span><strong>Pazarlama</strong>
+        <small>Bu sitede kullanılmıyor (piksel, yeniden pazarlama yok).</small></span>
+    </label>
+    <div class="cookie-actions" style="margin-top:16px;justify-content:flex-end">
+      <button type="button" class="cookie-btn secondary" id="cookie-close">Kapat</button>
+      <button type="button" class="cookie-btn primary" data-cookie-choice="all">Kaydet ve kabul et</button>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var KEY = 'ezanai_cookie_choice_v1';
+  var banner = document.getElementById('cookie-banner');
+  var modal = document.getElementById('cookie-modal');
+  function read() {
+    try { return JSON.parse(localStorage.getItem(KEY) || 'null'); }
+    catch (e) { return null; }
+  }
+  function save(choice) {
+    var data = {
+      choice: choice,
+      necessary: true,
+      analytics: false,
+      marketing: false,
+      version: 1,
+      at: new Date().toISOString()
+    };
+    try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {}
+    closeAll();
+  }
+  function closeAll() {
+    if (banner) { banner.classList.remove('is-open'); }
+    if (modal) { modal.classList.remove('is-open'); }
+  }
+  function openModal() {
+    if (modal) { modal.classList.add('is-open'); }
+  }
+  if (!read() && banner) { banner.classList.add('is-open'); }
+  Array.prototype.forEach.call(
+    document.querySelectorAll('[data-cookie-choice]'),
+    function (btn) {
+      btn.addEventListener('click', function () {
+        save(btn.getAttribute('data-cookie-choice'));
+      });
+    }
+  );
+  var settingsBtn = document.getElementById('cookie-open-settings');
+  if (settingsBtn) { settingsBtn.addEventListener('click', openModal); }
+  Array.prototype.forEach.call(
+    document.querySelectorAll('[data-cookie-settings]'),
+    function (link) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        openModal();
+      });
+    }
+  );
+  var closeBtn = document.getElementById('cookie-close');
+  if (closeBtn) { closeBtn.addEventListener('click', closeAll); }
+  if (modal) {
+    modal.addEventListener('click', function (event) {
+      if (event.target === modal) { closeAll(); }
+    });
+  }
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') { closeAll(); }
+  });
+})();
+</script>
+
+</body>
+</html>
